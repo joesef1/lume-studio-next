@@ -14,9 +14,7 @@ export default function StatsSection() {
           </ScrollView>
           <ScrollView delay={0.2}>
             <p>
-              At Lume Studio, we don’t just make things look good — we create
-              thoughtful design experiences that help businesses grow, connect
-              with their audience, and stand out in a crowded digital world.
+              At ai-stack, our applications aren’t just beautiful — they’re built to solve problems, engage users, and deliver results. Whether you’re beginning or improving, we’ve got you covered.
             </p>
           </ScrollView>
         </div>
