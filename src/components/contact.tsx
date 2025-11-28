@@ -32,27 +32,22 @@ export default function FeaturesSection() {
                 <li>
                   <Link href="#link" className="hover:text-accent-foreground">
                     <Mail className="size-5 mr-2 inline" />
-                    <span>contact@company.com</span>
+                    <span>info@ai-stack.net</span>
                   </Link>
                 </li>
                 <li>
                   <Link href="#link" className="hover:text-accent-foreground">
                     <PhoneCall className="size-5 mr-2 inline" />
-                    <span>+1 555-555-5555</span>
+                    <span>+966 50 124 6756</span>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="#link" className="hover:text-accent-foreground">
                     <MapPin className="size-5 mr-2 inline" />
                     <span>123 Main St, Anytown USA</span>
                   </Link>
-                </li>
-                <li>
-                  <Link href="#link" className="hover:text-accent-foreground">
-                    <MapPin className="size-5 mr-2 inline" />
-                    <span>123 Main St, Anytown UK</span>
-                  </Link>
-                </li>
+                </li> */}
+
               </ul>
             </ScrollView>
           </div>
