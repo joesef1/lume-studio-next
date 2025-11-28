@@ -4,25 +4,25 @@ import Image from "next/image";
 
 const ourPrinciples = [
   {
-    title: "Creativity with Purpose",
+    title: "On-Time Delivery",
     description:
-      "Our designs aren’t just pretty; they’re built to solve problems and make an impact.",
+      "We ensure timely project delivery to help you achieve your goals as quickly as possible.",
   },
   {
-    title: "Collaboration is Key",
+    title: "Quality ",
     description:
-      "We work with you, not just for you. Great ideas come from teamwork.",
+      "We adhere to the highest quality standards to provide you with an exceptional experience that drives your project's success.",
   },
 
   {
-    title: "Honest & Transparent",
+    title: "Innovation",
     description:
-      "No confusing jargon or hidden fees. Just clear communication and real results.",
+      "We deliver creative and unique solutions tailored to your business needs, helping you stand out.",
   },
   {
-    title: "Details Matter",
+    title: "Continuous Communication",
     description:
-      "The little things make a big difference. We sweat the small stuff, so you don’t have to.",
+      "We provide comprehensive support and ongoing communication to ensure your complete satisfaction with our services.",
   },
 ];
 
@@ -38,11 +38,7 @@ export default function ContentSection() {
           </ScrollView>
           <ScrollView>
             <p>
-              Lume Studio was born from a simple idea—great design should do
-              more than just look good; it should make an impact. What started
-              as a passion for creativity turned into a full-fledged design
-              agency dedicated to helping brands tell their stories, connect
-              with audiences, and stand out in a crowded world.
+              At ai-stack, our applications aren’t just beautiful — they’re built to solve problems, engage users, and deliver results. Whether you’re beginning or improving, we’ve got you covered.
             </p>
           </ScrollView>
         </div>
