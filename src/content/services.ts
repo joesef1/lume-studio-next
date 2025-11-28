@@ -1,58 +1,38 @@
 export const SERVICES_LIST = [
   {
-    name: "UI/UX & Web Design",
+    name: "Website Development",
     tags: [
-      "Figma",
-      "Wireframing",
-      "Prototyping",
-      "Responsive Design",
-      "User Testing",
+      "Professional and Corporate Websites",
+      "Educational Platforms",
+      "Online Stores"
     ],
-    img: "/images/abstract-1.png",
+    img: "/images/web.jpg",
     url: "#",
     description:
-      "End-to-end digital design from wireframes to polished interfaces. We create intuitive, visually appealing experiences for websites and apps, backed by user research and iterative testing.",
+      "Innovative website designs that boost credibility and enhance user experience."
   },
   {
-    name: "Brand Identity Design",
+    name: "Application Development",
     tags: [
-      "Logo Design",
-      "Brand Guidelines",
-      "Visual Identity",
-      "Typography",
-      "Color Theory",
+      "E-commerce Store Applications",
+      "Booking Applications",
+      "Educational Platform Applications"
     ],
-    img: "/images/abstract-2.png",
+    img: "/images/services/Application Development /mobile-Application Development.jpg",
     url: "#",
     description:
-      "Comprehensive branding packages including logos, style guides, and asset kits. We craft cohesive visual identities that communicate your brand’s essence across all touchpoints.",
+      "Smart apps to optimize performance and increase engagement."
   },
   {
-    name: "SEO & Website Audits",
+    name: "Artificial Intelligence Solutions",
     tags: [
-      "Technical SEO",
-      "Keyword Strategy",
-      "On-Page Optimization",
-      "Analytics",
-      "Performance Tuning",
+      "Machine Learning",
+      "Predictive Analytics",
+      "Integrated Solutions for Intelligent Automation (RPA)"
     ],
-    img: "/images/abstract-3.png",
+    img: "/images/ai2.avif",
     url: "#",
     description:
-      "Data-driven SEO audits and optimizations to improve rankings. We analyze technical health, content gaps, and backlink profiles to drive organic growth.",
-  },
-  {
-    name: "Social Media Marketing",
-    tags: [
-      "Meta Ads",
-      "Instagram Reels",
-      "Content Strategy",
-      "Community Management",
-      "Performance Tracking",
-    ],
-    img: "/images/abstract-5.png",
-    url: "#",
-    description:
-      "Full-service social media management—from organic content creation to paid campaigns. We build engaging narratives and measurable strategies tailored to each platform.",
-  },
+      "AI-powered insights for smarter decisions and future growth."
+  }
 ];

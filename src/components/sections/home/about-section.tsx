@@ -5,7 +5,7 @@ export default function AboutUsSection() {
   return (
     <>
       <AboutSection />
-      <TeamSection />
+      {/* <TeamSection /> */}
     </>
   );
 }
