@@ -21,7 +21,7 @@ export const SERVICES_LIST = [
       "Booking Applications",
       "Educational Platform Applications"
     ],
-    img: "/images/app-development.jpg",
+    img: "/images/mobile-Application-Development.jpg",
     url: "/service-details/application-development",
     description:
       "Smart apps to optimize performance and increase engagement."
