@@ -7,7 +7,7 @@ export const SERVICES_LIST = [
       "Predictive Analytics",
       "Integrated Solutions for Intelligent Automation (RPA)"
     ],
-    img: "/images/ai-solutions.png",
+    img: "/images/ai-solutions.jpg",
     url: "/service-details/artificial-intelligence-solutions",
     description:
       "AI-powered insights for smarter decisions and future growth."

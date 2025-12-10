@@ -30,94 +30,93 @@ export default function ServicesSection2() {
         <div className="mt-12 md:mt-24">
           <div className="space-y-10">
             {SERVICES_LIST.map((service) => (
-              <div
+              <CustomCursorElement
                 key={service.name}
-                className="group overflow-hidden border-b py-10"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-                  <div className="self-end lg:col-span-2">
-                    <div className="flex flex-col gap-8 ">
-                      <div className="space-y-4">
-                        <ScrollView>
-                          <h3 className="text-title text-2xl font-medium">
-                            {translateService(service.name, language)}
-                          </h3>
-                        </ScrollView>
-
-                        <ScrollView stagger delay={0.04}>
-                          <div>
-                            {service.tags.map((tag, index) => (
-                              <div key={index} className="inline-block">
-                                <ScrollViewStaggerWrapper>
-                                  <Badge
-                                    className="mr-2 mb-2"
-                                    variant="secondary"
-                                  >
-                                    {translateService(tag, language)}
-                                  </Badge>
-                                </ScrollViewStaggerWrapper>
-                              </div>
-                            ))}
-                          </div>
-                        </ScrollView>
-                      </div>
-                      <ScrollView delay={0.04}>
-                        <p className="text-muted-foreground">
-                          {translateService(service.description, language)}
-                        </p>
-                      </ScrollView>
-                    </div>
+                cursor={
+                  <div className="text-zinc-950 text-lg font-medium">
+                    {t("view")}
                   </div>
-                  <div className=" lg:col-span-3">
-                    <CustomCursorElement
-                      cursor={
-                        <div className="text-zinc-950 text-lg font-medium">
-                          {t("view")}
+                }
+              >
+                <Link href={service.url} className="block">
+                  <div className="group overflow-hidden border-b py-10 cursor-pointer transition-colors duration-300">
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+                      <div className="self-end lg:col-span-2">
+                        <div className="flex flex-col gap-8 ">
+                          <div className="space-y-4">
+                            <ScrollView>
+                              <h3 className="text-title text-2xl font-medium group-hover:text-primary transition-colors duration-300">
+                                {translateService(service.name, language)}
+                              </h3>
+                            </ScrollView>
+
+                            <ScrollView stagger delay={0.04}>
+                              <div>
+                                {service.tags.map((tag, index) => (
+                                  <div key={index} className="inline-block">
+                                    <ScrollViewStaggerWrapper>
+                                      <Badge
+                                        className="mr-2 mb-2"
+                                        variant="secondary"
+                                      >
+                                        {translateService(tag, language)}
+                                      </Badge>
+                                    </ScrollViewStaggerWrapper>
+                                  </div>
+                                ))}
+                              </div>
+                            </ScrollView>
+                          </div>
+                          <ScrollView delay={0.04}>
+                            <p className="text-muted-foreground">
+                              {translateService(service.description, language)}
+                            </p>
+                          </ScrollView>
                         </div>
-                      }
-                    >
-                      <InView
-                        variants={{
-                          hidden: {
-                            opacity: 0,
-                            y: 20,
-                            filter: "blur(14px)",
-                            scale: 0.5,
-                            originX: 0,
-                            originY: 0,
-                          },
-                          visible: {
-                            opacity: 1,
-                            scale: 1,
-                            y: 0,
-                            filter: "blur(0px)",
-                            transition: {
-                              delay: 0.01,
-                              duration: 0.5,
+                      </div>
+                      <div className=" lg:col-span-3">
+                        <InView
+                          variants={{
+                            hidden: {
+                              opacity: 0,
+                              y: 20,
+                              filter: "blur(14px)",
+                              scale: 0.5,
+                              originX: 0,
+                              originY: 0,
                             },
-                          },
-                        }}
-                        viewOptions={{
-                          margin: "0px 0px -250px 0px",
-                          once: true,
-                        }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                      >
-                        <Link href={service.url}>
+                            visible: {
+                              opacity: 1,
+                              scale: 1,
+                              y: 0,
+                              filter: "blur(0px)",
+                              transition: {
+                                delay: 0.01,
+                                duration: 0.5,
+                              },
+                            },
+                          }}
+                          viewOptions={{
+                            margin: "0px 0px -250px 0px",
+                            once: true,
+                          }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                        >
                           <Image
                             src={service.img}
                             alt={service.name}
-                            height="360"
-                            width="540"
+                            height="250"
+                            width="640"
                             loading="lazy"
-                            className=" object-cover  transition-all duration-500 w-3/4  aspect-[7/5]"
+                            className="object-cover transition-all duration-500
+                             aspect-[9/5] group-hover:scale-105"
                           />
-                        </Link>
-                      </InView>
-                    </CustomCursorElement>
+                        </InView>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </Link>
+              </CustomCursorElement>
             ))}
           </div>
         </div>
