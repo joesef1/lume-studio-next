@@ -32,6 +32,27 @@ interface Service {
   serviceNameEN: string;
 }
 
+interface ContactApiResponse {
+  succeeded: boolean;
+  status: number;
+  message: string;
+  data: any;
+  error: any;
+}
+
+// Type guard function to validate API response structure
+function isValidContactApiResponse(obj: any): obj is ContactApiResponse {
+  return (
+    obj &&
+    typeof obj === 'object' &&
+    typeof obj.succeeded === 'boolean' &&
+    typeof obj.status === 'number' &&
+    typeof obj.message === 'string' &&
+    obj.hasOwnProperty('data') &&
+    obj.hasOwnProperty('error')
+  );
+}
+
 export default function FeaturesSection() {
   const { t, language } = useLanguage();
   const [services, setServices] = useState<Service[]>([]);
@@ -82,7 +103,7 @@ export default function FeaturesSection() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      const response = await fetch("https://ai-stack.tryasp.net/api/Contact/Add", {
+      const response = await fetch("https://demo.ai-stack.net/api/Contact/Add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,12 +111,29 @@ export default function FeaturesSection() {
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
+      // Check if response is valid JSON
+      let responseData: any;
+      try {
+        responseData = await response.json();
+      } catch (parseError) {
+        throw new Error("Invalid response format: Unable to parse JSON");
+      }
+
+      // Validate response structure
+      if (!isValidContactApiResponse(responseData)) {
+        throw new Error("Invalid response format: Missing required fields");
+      }
+
+      // Type-safe response handling
+      const validatedResponse: ContactApiResponse = responseData;
+
+      if (validatedResponse.succeeded === true) {
         setSubmitStatus({
           type: "success",
           message:
+            validatedResponse.message ||
             t("contactSuccessMessage") ||
-            "Thank you! Your message has been sent successfully.",
+            "Contact added successfully",
         });
         // Reset form
         setFormData({
@@ -106,22 +144,36 @@ export default function FeaturesSection() {
           subject: "",
           message: "",
         });
-      } else {
-        const errorData = await response.json().catch(() => null);
+      } else if (validatedResponse.succeeded === false) {
         setSubmitStatus({
           type: "error",
           message:
-            errorData?.message ||
+            validatedResponse.message ||
+            validatedResponse.error ||
             t("contactErrorMessage") ||
             "Something went wrong. Please try again.",
         });
+      } else {
+        // Handle unexpected succeeded value
+        throw new Error("Invalid response: succeeded field must be boolean");
       }
     } catch (error) {
+      let errorMessage: string;
+
+      if (error instanceof Error) {
+        // Handle specific validation errors
+        if (error.message.startsWith("Invalid response")) {
+          errorMessage = t("contactErrorMessage") || "Server response format error. Please try again.";
+        } else {
+          errorMessage = t("contactErrorMessage") || "Failed to send message. Please check your connection and try again.";
+        }
+      } else {
+        errorMessage = t("contactErrorMessage") || "Failed to send message. Please check your connection and try again.";
+      }
+
       setSubmitStatus({
         type: "error",
-        message:
-          t("contactErrorMessage") ||
-          "Failed to send message. Please check your connection and try again.",
+        message: errorMessage,
       });
     } finally {
       setIsSubmitting(false);
